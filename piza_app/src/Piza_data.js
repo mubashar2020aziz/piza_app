@@ -1,4 +1,4 @@
-const pizzas = [
+const Allpizzas = [
   {
     name: 'Margherita',
     varients: ['small', 'medium', 'large'],
@@ -89,4 +89,4 @@ const pizzas = [
       'The wholesome flavour of tandoori masala with Chicken tikka, onion, red paprika & mint mayo',
   },
 ];
-export default pizzas;
+export default Allpizzas;

@@ -29,47 +29,83 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
-                  <div class="dropdown">
+                <div className="nav-link active" aria-current="page">
+                  <div className="dropdown">
                     <button
-                      class="btn btn-warning dropdown-toggle"
+                      className="btn btn-warning dropdown-toggle"
                       type="button"
                       id="dropdownMenuButton1"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      Login
+                      Detail
                     </button>
                     <ul
-                      class="dropdown-menu"
+                      className="dropdown-menu"
                       aria-labelledby="dropdownMenuButton1"
                     >
-                      <li>
-                        <Link
-                          class="dropdown-item"
-                          to="/login"
-                          onClick={() => dispatch(logoutUser)}
-                        >
-                          Logout
-                        </Link>
-                      </li>
+                      {currentUser ? (
+                        <>
+                          <li>
+                            <Link className="dropdown-item" to="/">
+                              {currentUser.name}
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              className="dropdown-item"
+                              to="/login"
+                              onClick={() => dispatch(logoutUser())}
+                            >
+                              Logout
+                            </Link>
+                          </li>
+                          <li>
+                            <Link className="dropdown-item" to="/order">
+                              Orders
+                            </Link>
+                          </li>
+                        </>
+                      ) : (
+                        <>
+                          {/* <li>
+                            <Link class="dropdown-item" to="/login">
+                              Login
+                            </Link>
+                          </li> */}
+                          <li className="nav-item">
+                            <Link
+                              className="nav-link active"
+                              aria-current="page"
+                              to="/register"
+                            >
+                              Register
+                            </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link
+                              className="nav-link active"
+                              aria-current="page"
+                              to="/login"
+                            >
+                              Login
+                            </Link>
+                          </li>
+                        </>
+                      )}
                     </ul>
                   </div>
-                </Link>
+                </div>
               </li>
 
               <li className="nav-item">
-                <Link
-                  className="nav-link active"
-                  aria-current="page"
-                  to="/register"
-                >
-                  Register
+                <Link className="nav-link" to="/cart">
+                  Cart {cartState.cartItems.length}
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/cart">
-                  Cart {cartState.cartItems.length}
+                <Link className="nav-link" to="/admin">
+                  Admin
                 </Link>
               </li>
             </ul>

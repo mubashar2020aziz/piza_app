@@ -10,6 +10,8 @@ import HomeScreen from './screen/HomeScreen';
 import CartScreen from './screen/CartScreen';
 import Register from './screen/Register';
 import Login from './screen/Login';
+import OrderScreen from './screen/OrderScreen';
+import AdminScreen from './screen/AdminScreen';
 
 const App = () => {
   return (
@@ -18,6 +20,7 @@ const App = () => {
         <Topbar />
         <Navbar />
         <Routes>
+          <Route exact path="/order" element={<OrderScreen />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/about" element={<About />} />
@@ -25,6 +28,7 @@ const App = () => {
           <Route exact path="/policy" element={<Policy />} />
           <Route exact path="/" element={<HomeScreen />} />
           <Route exact path="/cart" element={<CartScreen />} />
+          <Route path="/admin" element={<AdminScreen />} />
         </Routes>
       </Router>
     </>

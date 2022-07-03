@@ -3,7 +3,7 @@ import redux_thunk from 'redux-thunk';
 import { getAllPizzaReducer } from './reducer/pizzaReducer';
 import { registerUserReducer, loginUserReducer } from './reducer/userReducer';
 import { cartReducer } from './reducer/cartReducer';
-import { placeOrderReducer } from './reducer/orderReducer';
+import { placeOrderReducer, getUserOrderReducer } from './reducer/orderReducer';
 
 const rootReducer = combineReducers({
   getAllPizzaReducer: getAllPizzaReducer,
@@ -11,6 +11,7 @@ const rootReducer = combineReducers({
   registerUserReducer: registerUserReducer,
   loginUserReducer: loginUserReducer,
   placeOrderReducer: placeOrderReducer,
+  getUserOrderReducer: getUserOrderReducer,
 });
 const cartItems = localStorage.getItem('cartItems')
   ? JSON.parse(localStorage.getItem('cartItems'))

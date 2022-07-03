@@ -75,7 +75,7 @@ const Login = () => {
                   className="btn btn-warning w-100 text-center"
                   onClick={loginHandler}
                 >
-                  Register
+                  Login
                 </button>
               </form>
             </div>

@@ -31,13 +31,25 @@ const About = () => {
             Our Cheff
           </h1>
           <div className="col-md-4 col-10 mx-auto my-4">
-            <img src="images/cheff image1.jpg" alt="image1" class="img-fluid" />
+            <img
+              src="images/cheff4.jpg"
+              alt="image4"
+              style={{ height: '380px', borderRadius: '10px' }}
+            />
           </div>
           <div className="col-md-4 col-10 mx-auto my-4">
-            <img src="images/cheff2.jpg" alt="image1" class="img-fluid" />
+            <img
+              src="images/cheff2.jpg"
+              alt="image1"
+              style={{ height: '380px', borderRadius: '10px' }}
+            />
           </div>
           <div className="col-md-4 col-10 mx-auto my-4">
-            <img src="images/cheff3.jpg" alt="image1" class="img-fluid" />
+            <img
+              src="images/cheff3.jpg"
+              alt="image1"
+              style={{ height: '380px', borderRadius: '10px' }}
+            />
           </div>
         </div>
       </div>

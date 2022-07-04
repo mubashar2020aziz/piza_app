@@ -1,7 +1,7 @@
 import React from 'react';
 
 const UserList = () => {
-  return <div>UserList</div>;
+  return <div>UserList and menu</div>;
 };
 
 export default UserList;

@@ -12,6 +12,10 @@ import Register from './screen/Register';
 import Login from './screen/Login';
 import OrderScreen from './screen/OrderScreen';
 import AdminScreen from './screen/AdminScreen';
+import UserList from './component/admin/UserList';
+import PizzasList from './component/admin/PizzasList';
+import AddNewPizzaslist from './component/admin/AddNewPizzaslist';
+import OrderList from './component/admin/OrderList';
 
 const App = () => {
   return (
@@ -28,7 +32,12 @@ const App = () => {
           <Route exact path="/policy" element={<Policy />} />
           <Route exact path="/" element={<HomeScreen />} />
           <Route exact path="/cart" element={<CartScreen />} />
-          <Route path="/admin" element={<AdminScreen />} />
+          <Route path="/admin" element={<AdminScreen />}>
+            <Route exact path="userlist" element={<UserList />} />
+            <Route exact path="pizzalist" element={<PizzasList />} />
+            <Route exact path="addnewpizza" element={<AddNewPizzaslist />} />
+            <Route exact path="orderlist" element={<OrderList />} />
+          </Route>
         </Routes>
       </Router>
     </>

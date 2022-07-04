@@ -1,17 +1,16 @@
-import React from 'react';
-import {
-  //   BrowserRouter as Router,
-  Routes,
-  Route,
-  useNavigate,
-} from 'react-router-dom';
-import AddNewPizzaslist from '../component/admin/AddNewPizzaslist';
-import OrderList from '../component/admin/OrderList';
-import PizzasList from '../component/admin/PizzasList';
-import UserList from '../component/admin/UserList';
+import React, { useEffect } from 'react';
+import { Link, Outlet } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const AdminScreen = () => {
-  const history = useNavigate();
+  const userState = useSelector((state) => state.loginUserReducer);
+  const { currentUser } = userState;
+
+  useEffect(() => {
+    if (localStorage.getItem('currentUser') === null || currentUser.isAdmin) {
+      window.location.href = '/';
+    }
+  });
   return (
     <>
       <div className="container py-3">
@@ -22,7 +21,7 @@ const AdminScreen = () => {
           Admin Panel
         </h4>
         <div className="row">
-          <div className="col-md-4 ">
+          <div className="col-md-4 text-center col-12">
             <div
               class="btn-group-vertical"
               style={{
@@ -31,43 +30,39 @@ const AdminScreen = () => {
                 minWidth: '100px',
               }}
             >
-              <button
-                className="btn btn-warning"
-                onClick={() => history('/admin/userlist')}
+              <Link
+                to="userlist"
+                className="btn btn-warning "
+                style={{ borderRadius: '20px' }}
               >
                 All Users
-              </button>
-              <button
+              </Link>
+
+              <Link
+                to="pizzalist"
                 className="btn btn-success"
-                onClick={() => history('/admin/pizzalist')}
+                style={{ borderRadius: '20px' }}
               >
                 All Pizzas
-              </button>
-              <button
+              </Link>
+              <Link
+                to="addnewpizza"
                 className="btn btn-primary"
-                onClick={() => history('/admin/addnewpizza')}
+                style={{ borderRadius: '20px' }}
               >
                 Add New Pizzas
-              </button>
-              <button
+              </Link>
+              <Link
+                to="orderlist"
                 className="btn btn-secondary"
-                onClick={() => history('/admin/orderlist')}
+                style={{ borderRadius: '20px' }}
               >
                 All Orders
-              </button>
+              </Link>
             </div>
           </div>
-          <div className="col-md-4">
-            <Routes>
-              <Route exact path="/admin/userlist" element={<UserList />} />
-              <Route exact path="/admin/pizzalist" element={<PizzasList />} />
-              <Route
-                exact
-                path="/admin/addnewpizza"
-                element={<AddNewPizzaslist />}
-              />
-              <Route exact path="/admin/orderlist" element={<OrderList />} />
-            </Routes>
+          <div className="col-md-8 col-10">
+            <Outlet />
           </div>
         </div>
       </div>

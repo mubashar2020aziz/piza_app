@@ -20,7 +20,8 @@ const orderSchema = new Schema(
       type: String,
     },
     isDelivered: {
-      type: String,
+      type: Boolean,
+      default: false,
     },
     transactionid: {
       type: String,

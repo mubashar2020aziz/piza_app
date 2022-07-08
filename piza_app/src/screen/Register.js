@@ -47,7 +47,7 @@ const Register = () => {
           >
             <div className="card-body">
               <h3>Registeration Form</h3>
-              <form method="POST">
+              <form>
                 <div className="mb-3">
                   <input
                     type="text"
@@ -86,10 +86,10 @@ const Register = () => {
                 </div>
                 <div className="mb-3">
                   <input
-                    type="confirmpassword"
+                    type="confirmPassword "
                     className="form-control"
-                    placeholder="******"
-                    id="confirmpassword"
+                    placeholder="confirmPassword"
+                    id="confirmPassword "
                     name="confirmpassword"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}

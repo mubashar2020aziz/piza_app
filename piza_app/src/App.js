@@ -16,6 +16,7 @@ import UserList from './component/admin/UserList';
 import PizzasList from './component/admin/PizzasList';
 import AddNewPizzaslist from './component/admin/AddNewPizzaslist';
 import OrderList from './component/admin/OrderList';
+import EditPiza from './component/admin/EditPiza';
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
             <Route exact path="pizzalist" element={<PizzasList />} />
             <Route exact path="addnewpizza" element={<AddNewPizzaslist />} />
             <Route exact path="orderlist" element={<OrderList />} />
+            <Route exact path="editpizza:Id" element={<EditPiza />} />
           </Route>
         </Routes>
       </Router>

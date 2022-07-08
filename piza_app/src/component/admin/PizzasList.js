@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllPizzas } from '../../redux/actions/pizzaActions';
+import { deletePizza } from '../../redux/actions/pizzaActions';
 // import Pizza from '../../component/Pizza';
 import Loader from '../../component/Loader';
 import Error from '../../component/Error';
+import { Link, Outlet } from 'react-router-dom';
 
 const PizzasList = () => {
   const dispatch = useDispatch();
@@ -56,14 +58,22 @@ const PizzasList = () => {
                   </td>
                   <td>{pizza.category}</td>
                   <td>
-                    <i className="fas fa-edit text-success"></i>&nbsp;&nbsp;
-                    <i className="fas fa-trash text-danger"></i>
+                    <Link to={`/admin/editpizza:${pizza._id}`}>
+                      <i className="fas fa-edit text-success"></i>
+                    </Link>
+                    &nbsp; &nbsp;
+                    <i
+                      className="fas fa-trash text-danger"
+                      onClick={() => dispatch(deletePizza(pizza._id))}
+                    ></i>
                   </td>
                 </tr>
               ))}
+            <Outlet />
           </tbody>
         </table>
       )}
+
       {/* </div> */}
     </>
   );

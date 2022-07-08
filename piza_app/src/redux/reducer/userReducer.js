@@ -25,6 +25,7 @@ export const loginUserReducer = (state = {}, action) => {
     case 'USER_LOGIN_REQUEST':
       return {
         loading: true,
+        ...state,
       };
     case 'USER_LOGIN_SUCCESS':
       return {
@@ -33,6 +34,28 @@ export const loginUserReducer = (state = {}, action) => {
         currentUser: action.payload,
       };
     case 'USER_LOGIN_FAIL':
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+export const getAllUsersReducer = (state = { users: [] }, action) => {
+  switch (action.type) {
+    case 'GET_USER_REQUEST':
+      return {
+        ...state,
+        loading: true,
+      };
+    case 'GET_USER_SUCCESS':
+      return {
+        loading: false,
+        users: action.payload,
+      };
+    case 'GET_USER-FAIL':
       return {
         loading: false,
         error: action.payload,

@@ -23,7 +23,7 @@ const AdminScreen = () => {
         <div className="row">
           <div className="col-md-4 text-center col-12">
             <div
-              class="btn-group-vertical"
+              className="btn-group-vertical"
               style={{
                 minHeight: '400px',
                 borderRadius: '10px',

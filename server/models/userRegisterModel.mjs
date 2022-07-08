@@ -1,15 +1,17 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema(
+const newuserSchema = new Schema(
   {
     name: {
       type: String,
       required: true,
+      trim: true,
     },
     email: {
       type: String,
       required: true,
+      trim: true,
     },
     password: {
       type: String,
@@ -17,8 +19,8 @@ const userSchema = new Schema(
     },
     confirmPassword: {
       type: String,
-      required: true,
     },
+
     isAdmin: {
       type: Boolean,
       default: false,
@@ -27,5 +29,5 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
-const UserModel = mongoose.model('User11', userSchema);
+const UserModel = mongoose.model('User11', newuserSchema);
 export default UserModel;

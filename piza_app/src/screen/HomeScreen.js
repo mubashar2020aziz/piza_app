@@ -5,6 +5,7 @@ import { getAllPizzas } from '../redux/actions/pizzaActions';
 import Pizza from '../component/Pizza';
 import Loader from '../component/Loader';
 import Error from '../component/Error';
+import Filter from '../component/Filter';
 const HomeScreen = () => {
   const dispatch = useDispatch();
   const pizzastate = useSelector((state) => state.getAllPizzaReducer);
@@ -22,6 +23,7 @@ const HomeScreen = () => {
           <Error Error while fetching data />
         ) : (
           <div className="row">
+            <Filter />
             {pizzas.map((pizza, index) => (
               <div className="col-md-4 col-12" key={index}>
                 <Pizza pizza={pizza} />

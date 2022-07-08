@@ -25,11 +25,21 @@ export const getUserOrders = () => async (dispatch, getState) => {
   dispatch({ type: 'USER_ORDER_REQUEST' });
   try {
     const res = await axios.post(`${URL}/api/pizzas/getuserorder`, {
-      id: currentUser._id,
+      userid: currentUser._id,
     });
     console.log(res);
     dispatch({ type: 'USER_ORDER_SUCCESS', payload: res.data });
   } catch (error) {
     dispatch({ type: 'USER_ORDER_FAIL', payload: error });
+  }
+};
+
+export const getAllOrders = () => async (dispatch, getState) => {
+  dispatch({ type: 'ALL_ORDER_REQUEST' });
+  try {
+    const res = await axios.get(`${URL}/api/pizzas/alluserorder`);
+    dispatch({ type: 'ALL_ORDER_SUCCESS', payload: res.data });
+  } catch (error) {
+    dispatch({ type: 'ALL_ORDER_FAIL' });
   }
 };
